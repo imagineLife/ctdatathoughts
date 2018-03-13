@@ -39,7 +39,6 @@
         z-index: 100;
         width: auto;
         display: block;
-        margin: 15px auto;
         text-align: center;
         color: white;
       }
@@ -50,22 +49,38 @@
       .axis-label{
         fill: white;
       }
-      input[type=checkbox] {
-        transform: scale(2.5);
+      a{
+        color:#8E8883;
       }
-      @media only screen and (min-width: 375px){
+      input[type=checkbox] {
+        transform: scale(5);
+      }
+      @media only screen and (min-width: 400px){
         input[type=checkbox] {
           transform: scale(1.5);
+        }
+        #chartDiv{
+          height:750px;
+        }
+        label{
+          font-size: 2em;
         }
       }
     </style>
   </head>
   <body>
-    <p>
+    <section>
+      <p>
       Here, Population density is compared to the Average Wage of the top 10 most-populated cities in Connecticut.
-    </p>
-    <p>Prior to developing this chart, I thought that the higher the population density, the lower the average wage would be. Upon making this chart, and including the option to re-order the bars based on population density, I learned otherwise.</p>
-
+      </p>
+      <p>Prior to developing this chart, I thought that the higher the population density, the lower the average wage would be. Upon making this chart, and including the option to re-order the bars based on population density, I learned otherwise.</p>
+      <p>This data is compiled from 2 places: <br><br>
+        population data from <br><br>
+        <a target="_blank" href="http://portal.ct.gov/DPH/Health-Information-Systems--Reporting/Population/Annual-Town-and-County-Population-for-Connecticut">http://portal.ct.gov/DPH/Health-Information-Systems--Reporting/Population/Annual-Town-and-County-Population-for-Connecticut</a><br><br>
+        and wage data from <br><br>
+        <a target="_blank" href="http://data.ctdata.org/dataset/annual-average-employment-and-wages" >http://data.ctdata.org/dataset/annual-average-employment-and-wages</a><br><br>
+        </p>
+    </section>
     <label class="sortBox">
       <input type="checkbox"> Sort bars by <b>Population Density</b>
     </label>
