@@ -6,67 +6,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
     <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-   <style>
-      #chartDiv{
-        position: relative;
-        height:1200px;
-      }
-      p{
-        margin:45px;
-        color: #8E8883;
-        font-size: 1.5em;
-      }
-      .tick text {
-        fill: #8E8883;
-        font-size: 3em;
-        font-family: sans-serif;
-      }
-      .toolTip {
-        position: absolute;
-        display: none;
-        min-width: 80px;
-        height: auto;
-        background: none repeat scroll 0 0 rgba(255,255,255,.7);
-        padding: 14px;
-        text-align: center;
-        font-size: 2em;
-        font-family: sans-serif;
-      }
-      .sortBox{
-        height: 50px;
-        line-height: 25px;
-        position: relative;
-        z-index: 100;
-        width: auto;
-        display: block;
-        text-align: center;
-        color: white;
-      }
-      label{
-        font-size: 3em;
-        cursor: pointer;
-      }
-      .axis-label{
-        fill: white;
-      }
-      a{
-        color:#8E8883;
-      }
-      input[type=checkbox] {
-        transform: scale(5);
-      }
-      @media only screen and (min-width: 400px){
-        input[type=checkbox] {
-          transform: scale(1.5);
-        }
-        #chartDiv{
-          height:750px;
-        }
-        label{
-          font-size: 2em;
-        }
-      }
-    </style>
   </head>
   <body>
     <section>
@@ -81,6 +20,8 @@
         <a target="_blank" href="http://data.ctdata.org/dataset/annual-average-employment-and-wages" >http://data.ctdata.org/dataset/annual-average-employment-and-wages</a><br><br>
         </p>
     </section>
+    <h1>10 Most-Populated Cities in CT</h1>
+    <h2>Displaying Average Wage & Sortable by Population Density</h2>
     <label class="sortBox">
       <input type="checkbox"> Sort bars by <b>Population Density</b>
     </label>
