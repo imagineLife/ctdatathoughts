@@ -2,7 +2,7 @@
       const vars = {
         xLabel : 'City',
         yLabel : 'Average Wage',
-        margin : { left: 80, right: 30, top: 10, bottom: 150 }
+        margin : { left: 90, right: 30, top: 10, bottom: 120 }
       };
 
       const xValFromData = d => d.City;
@@ -239,7 +239,7 @@
       xAxisLabel
         .attrs({
           'x' : resizedWidthLessMargins / 2,
-          'y' : 120
+          'y' : 100
         })
 
       //Update the Y-AXIS
