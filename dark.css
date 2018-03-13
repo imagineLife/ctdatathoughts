@@ -22,7 +22,7 @@ body {
 }
 .tick text {
 	fill: #8E8883;
-	font-size: 3em;
+	font-size: 1.25em;
 	font-family: sans-serif;
 }
 .axis-label, .legend-label {
@@ -37,7 +37,7 @@ body {
 
 #chartDiv{
 	position: relative;
-	height:1200px;
+	height:500px;
 }
 
 p, h1, h2{
@@ -47,14 +47,6 @@ p, h1, h2{
 h1, h2{
 	margin:0 45px;
 	text-align: center;
-}
-
-h1{
-	font-size: 2.5em;
-}
-
-h2{
-	font-size: 1.5em;
 }
 
 p{
@@ -70,7 +62,7 @@ p{
 	background: none repeat scroll 0 0 rgba(255,255,255,.7);
 	padding: 14px;
 	text-align: center;
-	font-size: 2em;
+	font-size: .75em;
 	font-family: sans-serif;
 }
 
@@ -85,7 +77,6 @@ p{
 }
 
 label{
-	font-size: 3em;
 	cursor: pointer;
 	margin: 25px 0 0 0 ;
 }
@@ -98,9 +89,9 @@ a{
 	color:#8E8883;
 }
 
-input[type=checkbox] {
-	transform: scale(5);
-}
+/*input[type=checkbox] {
+	transform: scale(2);
+}*/
 
 @media only screen and (min-width: 400px){
 	
@@ -118,6 +109,10 @@ input[type=checkbox] {
 
 	.tick text{
 		font-size: 2em;
+	}
+
+	.toolTip{
+		font-size: 1.15em;
 	}
 
 }
