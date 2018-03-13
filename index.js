@@ -2,7 +2,7 @@
       const vars = {
         xLabel : 'City',
         yLabel : 'Average Wage',
-        margin : { left: 150, right: 50, top: 50, bottom: 220 }
+        margin : { left: 150, right: 50, top: 10, bottom: 220 }
       };
 
       const xValFromData = d => d.City;
