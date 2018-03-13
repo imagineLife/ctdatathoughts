@@ -7,10 +7,18 @@
     <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../dark.css">
    <style>
-
+      #chartDiv{
+        position: relative;
+        height:1200px;
+      }
+      p{
+        margin:45px;
+        color: #8E8883;
+        font-size: 1.5em;
+      }
       .tick text {
         fill: #8E8883;
-        font-size: 14pt;
+        font-size: 3em;
         font-family: sans-serif;
       }
       .toolTip {
@@ -21,7 +29,7 @@
         background: none repeat scroll 0 0 rgba(255,255,255,.7);
         padding: 14px;
         text-align: center;
-        font-size: 20px;
+        font-size: 2em;
         font-family: sans-serif;
       }
       .sortBox{
@@ -36,23 +44,39 @@
         color: white;
       }
       label{
-        font-size: 18px;
+        font-size: 3em;
         cursor: pointer;
+      }
+      .axis-label{
+        fill: white;
+      }
+      input[type=checkbox] {
+        transform: scale(2.5);
+      }
+      @media only screen and (min-width: 375px){
+        input[type=checkbox] {
+          transform: scale(1.5);
+        }
       }
     </style>
   </head>
   <body>
+    <p>
+      Here, Population density is compared to the Average Wage of the top 10 most-populated cities in Connecticut.
+    </p>
+    <p>Prior to developing this chart, I thought that the higher the population density, the lower the average wage would be. Upon making this chart, and including the option to re-order the bars based on population density, I learned otherwise.</p>
+
     <label class="sortBox">
-      <input type="checkbox">Sort bars by <b>Population Density</b>
+      <input type="checkbox"> Sort bars by <b>Population Density</b>
     </label>
-    <div id ="chartDiv"></svg>
+    <div id ="chartDiv"></div>
     <script>
 
 // Build Variables
       const vars = {
         xLabel : 'City',
         yLabel : 'Average Wage',
-        margin : { left: 120, right: 70, top: 20, bottom: 220 }
+        margin : { left: 150, right: 50, top: 50, bottom: 220 }
       };
 
       const xValFromData = d => d.City;
@@ -80,6 +104,8 @@
       const yScale = d3.scaleLinear();
       const yTicks = 10;
 
+      const colorScale = d3.scaleOrdinal()
+      .range(d3.schemeCategory10);
 
 // Extract the width and height that was computed by CSS.
       let resizedWidth = chartDiv.clientWidth;
@@ -130,7 +156,7 @@
         yAxisLabel.attrs({
             'class' : 'y axis-label',
             'x' : -heightLessMargins / 2,
-            'y' : -vars.margin.left / 1.75,
+            'y' : -vars.margin.left / 1.5,
             'transform' : `rotate(-90)`
           })
           .style('text-anchor', 'middle')
@@ -157,8 +183,6 @@
 
 // Parse through data,
       d3.csv('data.csv', data => {
-
-        console.log('data ',data);
   
         data.sort((a,b) => b.AnnualAverageWage - a.AnnualAverageWage);
         /*
@@ -191,7 +215,7 @@
               'y' : d => yScale(d.AnnualAverageWage),
               'width' : d => xScale.bandwidth(),
               'height' : d => heightLessMargins - yScale(yValFromData(d)),
-              'fill' : 'steelblue',
+              'fill' : (d) => colorScale(d.City),
               'class':'barClass'
             })
             .on("mousemove", function(d){
@@ -221,12 +245,12 @@
         
         yAxisG.call(yAxis);
 
-        d3.select("input").on("change", change);
+        d3.select("input").on("change", sort);
 
         /*
         Sort onClick function
         */
-        function change() {
+        function sort() {
 
           // Copy-on-write since tweens are evaluated after a delay.
           var x0 = xScale.domain(data.sort(this.checked
