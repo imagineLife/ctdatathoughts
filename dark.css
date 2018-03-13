@@ -93,6 +93,7 @@ p{
 label{
 	font-size: 3em;
 	cursor: pointer;
+	margin: 25px 0 0 0 ;
 }
 
 .axis-label{
@@ -109,12 +110,12 @@ input[type=checkbox] {
 
 @media only screen and (min-width: 400px){
 	input[type=checkbox] {
-	  transform: scale(1.5);
+	  transform: scale(1);
 	}
 	#chartDiv{
 	  height:750px;
 	}
 	label{
-	  font-size: 2em;
+	  font-size: 1.5em;
 	}
 }
